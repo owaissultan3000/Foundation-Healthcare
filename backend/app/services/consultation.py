@@ -24,7 +24,7 @@ def create_consultation(db: Session, data: ConsultationCreate):
             DiagnosisCode.id == consultation.diagnosis_code_id
         ).first()
         
-        # Convert to dict and add diagnosis_code
+        # Convert to dict and add diagnosis_code & description
         result = consultation.__dict__.copy()
         result['diagnosis_code'] = diagnosis.code if diagnosis else None
         result['description'] = diagnosis.description if diagnosis else None

@@ -25,7 +25,7 @@ router = APIRouter(
 )
 def create(
     consultation: ConsultationCreate,
-    # user_id: int = Depends(get_current_user),
+    user_id: int = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     return create_consultation(db, consultation)
